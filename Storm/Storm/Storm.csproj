@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3AE6190C-1CC7-4FA4-B859-5EABC8EC0614}</ProjectGuid>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Storm</RootNamespace>
+    <AssemblyName>StormLoader</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputType>Exe</OutputType>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputType>WinExe</OutputType>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_32\Microsoft.Xna.Framework\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_32\Microsoft.Xna.Framework.Game\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Game.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_32\Microsoft.Xna.Framework.Graphics\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Graphics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Xact, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_32\Microsoft.Xna.Framework.Xact\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Xact.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.9.6.1\lib\net45\Mono.Cecil.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Cecil.Mdb, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.9.6.1\lib\net45\Mono.Cecil.Mdb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Cecil.Pdb, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.9.6.1\lib\net45\Mono.Cecil.Pdb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Cecil.Rocks, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.9.6.1\lib\net45\Mono.Cecil.Rocks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="xTile, Version=2.0.4.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\xTile.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CecilExtensions.cs" />
+    <Compile Include="Collections\ProxyList.cs" />
+    <Compile Include="Collections\WrappedProxyList.cs" />
+    <Compile Include="Command.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="Collections\DualProxyDictionary.cs" />
+    <Compile Include="ExternalEvent\AssemblyMod.cs" />
+    <Compile Include="ExternalEvent\AssemblyModLoader.cs" />
+    <Compile Include="ExternalEvent\DiskResource.cs" />
+    <Compile Include="ExternalEvent\JsonModManifest.cs" />
+    <Compile Include="ExternalEvent\ModAttribute.cs" />
+    <Compile Include="Collections\KeyProxyDictionary.cs" />
+    <Compile Include="Manipulation\Cecil\CecilInstanceDetourInjector.cs" />
+    <Compile Include="Manipulation\Cecil\CecilEventCallbackInjector.cs" />
+    <Compile Include="Manipulation\Cecil\CecilFieldAccessorMutatorInjector.cs" />
+    <Compile Include="Manipulation\Cecil\CecilFieldMutatorInjector.cs" />
+    <Compile Include="Manipulation\Cecil\CecilInvokerInjector.cs" />
+    <Compile Include="Manipulation\ConstantReplacerParams.cs" />
+    <Compile Include="Manipulation\ConstructorReplacerParams.cs" />
+    <Compile Include="Manipulation\DetourEvent.cs" />
+    <Compile Include="Manipulation\EventCallbackParams.cs" />
+    <Compile Include="Manipulation\FieldAccessorMutatorParams.cs" />
+    <Compile Include="Manipulation\FieldInfoInjector.cs" />
+    <Compile Include="Manipulation\FieldInfoParams.cs" />
+    <Compile Include="Manipulation\FieldMutatorParams.cs" />
+    <Compile Include="Manipulation\InjectorMetaData.cs" />
+    <Compile Include="Manipulation\InsertionType.cs" />
+    <Compile Include="Manipulation\InvokerParams.cs" />
+    <Compile Include="Manipulation\Json\JsonEventCallbackParams.cs" />
+    <Compile Include="Manipulation\Json\JsonFieldAccessorMutatorParams.cs" />
+    <Compile Include="Manipulation\Json\JsonFieldInfoParams.cs" />
+    <Compile Include="Manipulation\Json\JsonFieldMutatorParams.cs" />
+    <Compile Include="Manipulation\Json\JsonInvokerParams.cs" />
+    <Compile Include="Manipulation\Json\JsonMethodInfoParams.cs" />
+    <Compile Include="Manipulation\MethodInfoInjector.cs" />
+    <Compile Include="Manipulation\MethodInfoParams.cs" />
+    <Compile Include="ExternalEvent\ModEventBus.cs" />
+    <Compile Include="ExternalEvent\ModLoader.cs" />
+    <Compile Include="ExternalEvent\LoadedMod.cs" />
+    <Compile Include="ExternalEvent\LocalModLoader.cs" />
+    <Compile Include="ExternalEvent\Subscribe.cs" />
+    <Compile Include="StardewValley\Accessor\UI\BuffAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\HUDMessageAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\InputButtonAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Item\SlingshotAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Item\SwordAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Item\TorchAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Item\WandAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Location\CommunityCenterAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Location\ForestAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Location\TownAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\OptionsAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\StatsAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Terrain\FlooringAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Terrain\FruitTreeAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Terrain\GrassAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Terrain\QuartzAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Terrain\ResourceClumpAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Terrain\StalagmiteAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Terrain\TreeAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\BundleAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\ClickableAnimatedComponentAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\JunimoNoteMenuAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\MenuWithInventoryAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\OptionsPageAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\ScreenSwipeAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\BuffsDisplayAccessor.cs" />
+    <Compile Include="StardewValley\Event\BobberBar\BobberBarUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\BuffsDisplay\AddOtherBuffCallbackEvent.cs" />
+    <Compile Include="StardewValley\Event\BuffsDisplay\TryToAddFoodBuffCallbackEvent.cs" />
+    <Compile Include="StardewValley\Event\BuffsDisplay\TryToAddDrinkBuffCallbackEvent.cs" />
+    <Compile Include="StardewValley\Event\Chest\AddItemToChestEvent.cs" />
+    <Compile Include="StardewValley\Event\Content\AssetLoadEvent.cs" />
+    <Compile Include="StardewValley\Event\Content\ManagerUnloadEvent.cs" />
+    <Compile Include="StardewValley\Event\Crop\PostCropConstructorEvent.cs" />
+    <Compile Include="StardewValley\Event\Crop\PostCropNewDayEvent.cs" />
+    <Compile Include="StardewValley\Event\Crop\PreCropConstructorEvent.cs" />
+    <Compile Include="StardewValley\Event\Crop\PreCropNewDayEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\PostFarmerChangeIntoSwimsuitEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\PostFarmerChangeOutOfSwimsuitEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\PostFarmerDayUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\FarmerGetHisHerEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\FarmerMountHorseEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\FarmerShipAllEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\GetFarmerTextureEvent.cs" />
+    <Compile Include="StardewValley\Event\FishingRod\PostDoneFishingEvent.cs" />
+    <Compile Include="StardewValley\Event\FishingRod\PostFishingRodTickUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\FishingRod\PostPullFishFromWaterEvent.cs" />
+    <Compile Include="StardewValley\Event\FishingRod\PreFishingRodTickUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\GamepadButtonPressedEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\GamepadButtonReleasedEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PlaySoundEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PostNewDayEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PreNewDayEvent.cs" />
+    <Compile Include="StardewValley\Event\HoeDirt\PostHoeDirtCanPlantEvent.cs" />
+    <Compile Include="StardewValley\Event\HoeDirt\PostHoeDirtPlantEvent.cs" />
+    <Compile Include="StardewValley\Event\Object\PostObjectDropInActionEvent.cs" />
+    <Compile Include="StardewValley\Event\Object\PreObjectDropInActionEvent.cs" />
+    <Compile Include="StardewValley\Event\ShopMenu\PreConstructShopViaListEvent.cs" />
+    <Compile Include="StardewValley\Proxy\AnimatedSpriteDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\BuffDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\HUDMessageDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\CharacterDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\ChatBoxDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\ChestDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\MonsterDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\NPCDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\StandardObjectDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\StandardToolDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\TextBoxDelegate.cs" />
+    <Compile Include="StardewValley\StormContentManager.cs" />
+    <Compile Include="StardewValley\Wrapper\Buff.cs" />
+    <Compile Include="StardewValley\Wrapper\ChildWrapper.cs" />
+    <Compile Include="StardewValley\Wrapper\HUDMessage.cs" />
+    <Compile Include="StardewValley\Wrapper\Horse.cs" />
+    <Compile Include="StardewValley\Wrapper\BuffsDisplay.cs" />
+    <Compile Include="StardewValley\Wrapper\StaticContextWrapper.cs" />
+    <Compile Include="Collections\ProxyDictionary.cs" />
+    <Compile Include="Collections\ValueProxyDictionary.cs" />
+    <Compile Include="StardewValley\Accessor\AnimatedSpriteAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Item\AxeAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Building\BarnAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\BillboardAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\BobberBarAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Building\BuildingAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Character\CatAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\ChatBoxAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Item\ChestAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Character\ChildAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\ClickableComponentAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\ClickableTextureComponentAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Building\CoopAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Item\CrabPotAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\CraftingPageAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\CraftingRecipeAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Character\DogAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\EventAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Character\FarmAnimalAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\ClickableMenuAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Item\FenceAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Item\FishingRodAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\GameMenuAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Item\HatAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Item\HoeAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Terrain\HoeDirtAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Character\HorseAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\InventoryMenuAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\InventoryPageAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Character\JunimoAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Location\MineShaftAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Character\MonsterAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\CropAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\ShopMenuAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\TextBoxAccessor.cs" />
+    <Compile Include="StardewValley\Event\Character\ShouldCollideWithBuildingLayerEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\PostFarmerCaughtFishEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\FarmerChangedAccessoryEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\FarmerChangedEyeColorEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\FarmerChangedGenderEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\FarmerChangedHairColorEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\FarmerChangedHairEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\FarmerChangedHatEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\FarmerChangedPantsEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\FarmerChangedShirtEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\PostFarmerConsumObjectEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\PostFarmerCookedRecipeEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\PostFarmerDismountHorseEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\PostFarmerFoundArtifactEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\PostFarmerFoundMineralEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\PostFarmerShippedBasicEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\FarmerChangedShoeEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\FarmerChangedSkinColorEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\FarmerCollideWithEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\FarmerIncreaseBackpackSizeEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\FarmerGainedExperienceEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PreGameLoadedEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\ChatMessageEnteredEvent.cs" />
+    <Compile Include="StardewValley\Event\FishingRod\PreDoneFishingEvent.cs" />
+    <Compile Include="StardewValley\Event\FishingRod\PrePullFishFromWaterEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\IsDarkOutEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\ClientSizeChangedEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\GameExitEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PostGameLoadedEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\FarmerDamageEvent.cs" />
+    <Compile Include="StardewValley\Accessor\Character\PetAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Item\PickAxeAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Item\RingAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Item\SeedsAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Building\StableAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\TempAnimatedSpriteAccessor.cs" />
+    <Compile Include="StardewValley\Event\Crop\PostHarvestCropEvent.cs" />
+    <Compile Include="StardewValley\Event\Crop\PreHarvestCropEvent.cs" />
+    <Compile Include="StardewValley\Accessor\Terrain\TerrainFeatureAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Item\WateringCanAccessor.cs" />
+    <Compile Include="StardewValley\Event\Farmer\AddItemToInventoryEvent.cs" />
+    <Compile Include="StardewValley\Event\Crop\CropCompleteGrowthEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\Post10MinuteClockUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\KeyPressedEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\KeyReleasedEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\MouseButtonPressedEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\MouseButtonReleasedEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PlayerEatObjectEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PlayMorningSongEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PrepareSpouseForWeddingEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PressActionButtonEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PressAddItemToInventoryButtonEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PressSwitchToolButtonEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PressUseToolButtonEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\ReleaseUseToolButtonEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\ShouldTimePassEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\ShowEndOfNightStuffEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\ShowGlobalMessageEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\ShowRedMessageEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\TryToBuySelectedItemsEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\UnloadContentEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\UpdateGameClockEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\LoadContentEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PostUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PreRenderEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PreUIRenderEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PreUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\SellShippedItemsEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\UpdateMusicEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\UpdateTitleScreenEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\WarpFarmerEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\ShipObjectEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\PreBuriedItemCheckEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\PreStoneItemCheckEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\ChooseLevelTypeEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\CreateLadderDownEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\GetExtraMineShaftMillisecondsEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\GetMineAreaEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\GetMonsterForLevelEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\GetOreIndexForLevelEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\LoadMineshaftLevelEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\PlayMineSongEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\PrepareElevatorEvent.cs" />
+    <Compile Include="StardewValley\Event\Object\PostObjectDayUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\Object\PreObjectDayUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\HoeDirt\PostDayUpdateHoeDirtEvent.cs" />
+    <Compile Include="StardewValley\Event\HoeDirt\PreDayUpdateHoeDirtEvent.cs" />
+    <Compile Include="StardewValley\Event\HoeDirt\PreHoeDirtCanPlantEvent.cs" />
+    <Compile Include="StardewValley\Event\HoeDirt\PreHoeDirtPlantEvent.cs" />
+    <Compile Include="StardewValley\Event\PreInjectionEvent.cs" />
+    <Compile Include="StardewValley\Event\ShopMenu\PostConstructShopViaListEvent.cs" />
+    <Compile Include="StardewValley\Event\ShopMenu\SetUpShopOwnerEvent.cs" />
+    <Compile Include="StardewValley\HookResourceMod.cs" />
+    <Compile Include="StardewValley\Proxy\BillboardDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\ClickableMenuDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\CraftingRecipeDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\StandardBillboardDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\ObjectDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\OverrideEvent.cs" />
+    <Compile Include="StardewValley\Proxy\ProxyMap.cs" />
+    <Compile Include="StardewValley\Proxy\MappedInterceptorFactory.cs" />
+    <Compile Include="StardewValley\Proxy\TextureComponentDelegate.cs" />
+    <Compile Include="StardewValley\StormAPI.cs" />
+    <Compile Include="StardewValley\Accessor\Item\BootsAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Character\CharacterAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Character\FarmerAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Location\GameLocationAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Item\ItemAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\StaticContextAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Character\NPCAccessor.cs" />
+    <Compile Include="StardewValley\Wrapper\Billboard.cs" />
+    <Compile Include="StardewValley\Wrapper\ChatBox.cs" />
+    <Compile Include="StardewValley\Wrapper\ClickableComponent.cs" />
+    <Compile Include="StardewValley\Wrapper\ClickableMenu.cs" />
+    <Compile Include="StardewValley\Wrapper\ClickableTextureComponent.cs" />
+    <Compile Include="StardewValley\Wrapper\Event.cs" />
+    <Compile Include="StardewValley\Wrapper\Fence.cs" />
+    <Compile Include="StardewValley\Wrapper\FishingRod.cs" />
+    <Compile Include="StardewValley\Wrapper\GameMenu.cs" />
+    <Compile Include="StardewValley\Wrapper\HoeDirt.cs" />
+    <Compile Include="StardewValley\Wrapper\InventoryMenu.cs" />
+    <Compile Include="StardewValley\Wrapper\InventoryPage.cs" />
+    <Compile Include="StardewValley\Accessor\Item\ObjectAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\ProgramAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Item\ToolAccessor.cs" />
+    <Compile Include="StardewValley\Event\Game\SeasonChangeEvent.cs" />
+    <Compile Include="StardewValley\Event\StaticContextEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\InitializeEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\Pre10MinuteClockUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PostRenderEvent.cs" />
+    <Compile Include="StardewValley\Proxy\InterceptorFactory.cs" />
+    <Compile Include="StardewValley\ManagedStardewValleyLauncher.cs" />
+    <Compile Include="StardewValley\StaticGameContext.cs" />
+    <Compile Include="CecilUtils.cs" />
+    <Compile Include="DataFormat.cs" />
+    <Compile Include="Logging.cs" />
+    <Compile Include="Manipulation\AbsoluteCallParams.cs" />
+    <Compile Include="Manipulation\Cecil\CecilAbsoluteCallInjector.cs" />
+    <Compile Include="Manipulation\Cecil\CecilFieldAccessorInjector.cs" />
+    <Compile Include="Manipulation\Cecil\CecilFieldDetourInjector.cs" />
+    <Compile Include="Manipulation\Cecil\CecilInjectorFactory.cs" />
+    <Compile Include="Manipulation\Cecil\CecilInterfaceInjector.cs" />
+    <Compile Include="Manipulation\Cecil\CecilRetCallInjector.cs" />
+    <Compile Include="Manipulation\FieldAccessorParams.cs" />
+    <Compile Include="Manipulation\FieldDetourParams.cs" />
+    <Compile Include="Manipulation\InjectionFactoryContext.cs" />
+    <Compile Include="Manipulation\Injector.cs" />
+    <Compile Include="Manipulation\InjectorFactories.cs" />
+    <Compile Include="Manipulation\InjectorFactory.cs" />
+    <Compile Include="Manipulation\InjectorFactoryType.cs" />
+    <Compile Include="Manipulation\InterfaceParams.cs" />
+    <Compile Include="Manipulation\Json\JsonAbsoluteCallParams.cs" />
+    <Compile Include="Manipulation\Json\JsonFieldAccessorParams.cs" />
+    <Compile Include="Manipulation\Json\JsonFieldDetourParams.cs" />
+    <Compile Include="Manipulation\Json\JsonParamContainer.cs" />
+    <Compile Include="Manipulation\Json\JsonInterfaceParams.cs" />
+    <Compile Include="Manipulation\RetCallParams.cs" />
+    <Compile Include="Manipulation\Cecil\CecilRewriteEntryInjector.cs" />
+    <Compile Include="Manipulation\RewriteEntryInjectorParams.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReflectionUtils.cs" />
+    <Compile Include="StardewValley\Proxy\ToolDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\TypeDelegate.cs" />
+    <Compile Include="StardewValley\Wrapper\AnimatedSprite.cs" />
+    <Compile Include="StardewValley\Wrapper\ShopMenu.cs" />
+    <Compile Include="StardewValley\Wrapper\TextBox.cs" />
+    <Compile Include="StardewValley\Wrapper\Wrapper.cs" />
+    <Compile Include="StardewValley\Wrapper\BobberBar.cs" />
+    <Compile Include="StardewValley\Wrapper\Character.cs" />
+    <Compile Include="StardewValley\Wrapper\Chest.cs" />
+    <Compile Include="StardewValley\Wrapper\Crop.cs" />
+    <Compile Include="StardewValley\Wrapper\Farmer.cs" />
+    <Compile Include="StardewValley\Wrapper\Item.cs" />
+    <Compile Include="StardewValley\Wrapper\Monster.cs" />
+    <Compile Include="StardewValley\Wrapper\NPC.cs" />
+    <Compile Include="StardewValley\Wrapper\Object.cs" />
+    <Compile Include="StardewValley\Wrapper\StaticContext.cs" />
+    <Compile Include="StardewValley\Wrapper\GameLocation.cs" />
+    <Compile Include="StardewValley\Wrapper\TerrainFeature.cs" />
+    <Compile Include="StardewValley\Wrapper\Tool.cs" />
+    <Compile Include="TypeCollisionException.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="StardewValley\Event\ClickableMenu\" />
+    <Folder Include="StardewValley\Event\GameLocation\" />
+    <Folder Include="StardewValley\Event\NPC\" />
+    <Folder Include="StardewValley\Event\SeedShop\" />
+    <Folder Include="StardewValley\Event\TerrainFeature\" />
+    <Folder Include="StardewValley\Event\Utility\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
